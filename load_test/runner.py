@@ -6,12 +6,12 @@ from multiprocessing import Process
 
 from load_test.test_base import TestBase
 
-ARG_PROCESSES = "processes"
-ARG_DURATION = "duration"
-ARG_RUNS = "runs"
-ARG_DELAY = "delay"
-ARG_RESULTS_DIR = "results_dir"
-ARG_LOGGER = "logger"
+OPT_PROCESSES = "processes"
+OPT_DURATION = "duration"
+OPT_RUNS = "runs"
+OPT_DELAY = "delay"
+OPT_RESULTS_DIR = "results_dir"
+OPT_LOGGER = "logger"
 
 DEFAULT_PROCESSES = 1
 DEFAULT_DURATION = 3
@@ -22,12 +22,12 @@ class Runner:
     def __init__(self, tests_classes, options=None):
         options = options or {}
         self._tests_classes = tests_classes
-        self._processes = options.get(ARG_PROCESSES, DEFAULT_PROCESSES)
-        self._duration = options.get(ARG_DURATION, DEFAULT_DURATION)
-        self._runs = options.get(ARG_RUNS)
-        self._delay = options.get(ARG_DELAY)
-        self._temp_results_dir = f"{options.get(ARG_RESULTS_DIR, DEFAULT_RESULTS_DIR)}/{int(time.time())}"
-        self._logger = options.get(ARG_LOGGER) or logging.getLogger("dummy")
+        self._processes = options.get(OPT_PROCESSES, DEFAULT_PROCESSES)
+        self._duration = options.get(OPT_DURATION, DEFAULT_DURATION)
+        self._runs = options.get(OPT_RUNS)
+        self._delay = options.get(OPT_DELAY)
+        self._temp_results_dir = f"{options.get(OPT_RESULTS_DIR, DEFAULT_RESULTS_DIR)}/{int(time.time())}"
+        self._logger = options.get(OPT_LOGGER) or logging.getLogger("dummy")
         self._validate()
 
     def run(self):

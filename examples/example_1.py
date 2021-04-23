@@ -3,14 +3,14 @@ import logging
 import sys
 
 from examples.test_google import TestGoogle
-from load_test.runner import Runner, ARG_LOGGER, ARG_PROCESSES, ARG_DURATION, ARG_RUNS, ARG_DELAY, ARG_RESULTS_DIR
+from load_test.runner import Runner, OPT_LOGGER, OPT_PROCESSES, OPT_DURATION, OPT_RUNS, OPT_DELAY, OPT_RESULTS_DIR
 
 TEST_CLASSES = [TestGoogle]
 
 
 def main():
     options = parse_args()
-    options[ARG_LOGGER] = init_logger()
+    options[OPT_LOGGER] = init_logger()
     runner = Runner(TEST_CLASSES, options)
     runner.run()
 
@@ -34,11 +34,11 @@ def init_logger():
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument(f"--{ARG_PROCESSES}", help="amount of test duplicates running in parallel", type=int, default=1)
-    parser.add_argument(f"--{ARG_DURATION}", help="test duration limit in seconds", type=int, default=3)
-    parser.add_argument(f"--{ARG_RUNS}", help="test runs limit", type=int, default=None)
-    parser.add_argument(f"--{ARG_DELAY}", help="delay between each batch run", type=int, default=3)
-    parser.add_argument(ARG_RESULTS_DIR, help="directory of the results", type=str)
+    parser.add_argument(f"--{OPT_PROCESSES}", help="amount of test duplicates running in parallel", type=int, default=1)
+    parser.add_argument(f"--{OPT_DURATION}", help="test duration limit in seconds", type=int, default=3)
+    parser.add_argument(f"--{OPT_RUNS}", help="test runs limit", type=int, default=None)
+    parser.add_argument(f"--{OPT_DELAY}", help="delay between each batch run", type=int, default=3)
+    parser.add_argument(OPT_RESULTS_DIR, help="directory of the results", type=str)
     return vars(parser.parse_args())
 
 
