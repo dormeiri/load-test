@@ -5,12 +5,14 @@
 Define by implementing `TestBase`, run with `Runner`
 
 ```python
-class MyTest(TestBase):
+import load_test
+
+class MyTest(load_test.TestBase):
     def _run_task(self):
         requests.get("https://google.com")
 
 def main():
-    Runner([MyTestCase]).run()
+    load_test.Runner([MyTest]).run()
 ```
 
 _See [examples](/examples)_
