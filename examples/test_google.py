@@ -1,8 +1,8 @@
 import requests as requests
 
-from load_test.test_base import TestBase
+import load_test
 
 
-class TestGoogle(TestBase):
+class TestGoogle(load_test.TestBase):
     def _run_task(self):
         requests.get("https://google.com")
