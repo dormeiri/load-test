@@ -17,6 +17,10 @@ def main():
 
 _See [examples](/examples)_
 
+## Get It Now
+
+Run `pip install load_test`
+
 ## How It Works
 
 Preconfigured amount of processes will run a test case over and over again until timeout. You can send more than one
